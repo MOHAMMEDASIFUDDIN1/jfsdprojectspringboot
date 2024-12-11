@@ -1,2 +1,2 @@
 # jfsdprojectspringboot
-jfsdproject
+ART GALLERY PROJECT
