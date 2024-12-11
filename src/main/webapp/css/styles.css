@@ -1,0 +1,98 @@
+/* styles.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('/img/login-bg.png') ;
+    background-size: cover;
+    color: #333;
+    top:25px;
+}
+.logo{
+  color:#ffffff; 
+      font-size: 1.5em;
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+  
+}
+.h1{
+	color:blue;
+}
+
+.loginWindow { 
+    width: 350px;
+    height:500px;
+    margin: 2% auto; /* Centers the login window vertically and horizontally */
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    overflow: blur;
+}
+
+.loginHeader {
+    /* Blue header */
+    color: #333;
+    font-size: 1.5em;
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+}
+
+.innerLoginWindow {
+    padding: 10px;
+}
+
+input[type="text"], input[type="password"] {
+    width: calc(100% - 30px);
+    padding: 10px;
+    margin-bottom: 2px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+.signUp {
+    display: block;
+    text-align: center;
+      margin-bottom: 15px;
+    font-size: 0.9em;
+    color: #007bff;
+    text-decoration: none;
+}
+
+
+button.signinBtn {
+    width: 100%;
+    padding: 6px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 1px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button.signinBtn:hover {
+    background-color: #0056b3;
+}
+
+label {
+    font-size: 0.9em;
+}
+
+
+
+#captchaImage {
+    display: block;
+    width: 100%;
+    max-width: 150px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#ack {
+    font-size: 0.9em;
+    text-align: center;
+}

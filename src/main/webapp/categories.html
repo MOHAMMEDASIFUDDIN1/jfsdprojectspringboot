@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Gallery Categories</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: white;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .nav-links {
+            list-style-type: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .nav-links li a:hover {
+            text-decoration: underline;
+        }
+
+        .categories-header {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .categories-header h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            transition: filter 0.3s ease;
+        }
+
+        .category-item {
+            background-color: #222;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .category-item h3 {
+            margin: 15px 0 10px;
+            font-size: 24px;
+        }
+
+        .category-item p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .categories-grid.blur .category-item {
+            filter: blur(5px);
+            pointer-events: none;
+        }
+
+        .categories-grid.blur .category-item.zoomed {
+            filter: none;
+            transform: scale(1.1);
+            pointer-events: auto;
+            z-index: 10;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Art Gallery</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="dashboard.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="categories.html">Categories</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="categories-header">
+        <h2>Explore Art by Categories</h2>
+        <p>Discover different forms of art in our collection. Click on a category to explore more.</p>
+    </section>
+
+    <section class="categories-grid" id="categories-grid">
+        <div class="category-item" onclick="zoomCategory(this)">
+            <img src="img/art1.jpg" alt="Paintings">
+            <h3>Paintings</h3>
+            <p>Explore beautiful and timeless paintings from renowned artists around the world.</p>
+        </div>
+
+        <div class="category-item" onclick="zoomCategory(this)">
+            <img src="img/art10.jpg" alt="Sculptures">
+            <h3>Sculptures</h3>
+            <p>Dive into the world of 3D art with sculptures crafted with precision and creativity.</p>
+        </div>
+
+        <div class="category-item" onclick="zoomCategory(this)">
+            <img src="img/art6.jpg" alt="Photography">
+            <h3>Photography</h3>
+            <p>Capture moments through the lens of skilled photographers showcasing various styles.</p>
+        </div>
+
+        <div class="category-item" onclick="zoomCategory(this)">
+            <img src="img/art19.jpg" alt="Digital Art">
+            <h3>Digital Art</h3>
+            <p>Discover a modern take on art with stunning and innovative digital artworks.</p>
+        </div>
+
+        <div class="category-item" onclick="zoomCategory(this)">
+            <img src="img/art3.jpeg" alt="Abstract Art">
+            <h3>Abstract Art</h3>
+            <p>Explore the imaginative and interpretive world of abstract art.</p>
+        </div>
+
+        <div class="category-item" onclick="zoomCategory(this)">
+            <img src="img/art16.jpg" alt="Street Art">
+            <h3>Street Art</h3>
+            <p>View the vibrant and expressive pieces from the streets, full of urban creativity.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Art Gallery. All rights reserved. | <a href="contact.html">Contact Us</a></p>
+    </footer>
+
+    <script>
+        function zoomCategory(element) {
+            const grid = document.getElementById('categories-grid');
+            const isZoomed = element.classList.contains('zoomed');
+
+            // Reset all items
+            grid.classList.remove('blur');
+            document.querySelectorAll('.category-item').forEach(item => item.classList.remove('zoomed'));
+
+            if (!isZoomed) {
+                // Blur other items and zoom the clicked one
+                grid.classList.add('blur');
+                element.classList.add('zoomed');
+            }
+        }
+    </script>
+</body>
+</html>

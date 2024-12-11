@@ -1,0 +1,119 @@
+/* General styling for body */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('/img/back8.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    color: white;
+}
+
+.navbar .logo h1 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #fff;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #f4a261;
+}
+
+/* Main content */
+main {
+    max-width: 1150px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.dashboard {
+    background-color: rgba(255, 255, 255, 0.2); /* Transparent background for blur effect */
+    backdrop-filter: blur(10px); /* Applies blur */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    position: relative; /* Enables top adjustment */
+    top: 200px; /* Adjusts the position */
+}
+
+.dashboard h2 {
+    margin-top: 0;
+    color: #444;
+}
+
+.dashboard p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Dashboard options layout */
+.dashboard-options {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.option {
+    background-color: rgba(255, 255, 255, 0.2); /* Transparent background for blur */
+    backdrop-filter: blur(10px); /* Applies blur */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+    border-radius: 8px;
+    width: 220px;
+    padding: 15px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.option h3 {
+    color: #444;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.option a.button {
+    text-decoration: none;
+    color: white;
+    background-color: #333;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.option a.button:hover {
+    background-color: #333;
+}
+
+.option:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}

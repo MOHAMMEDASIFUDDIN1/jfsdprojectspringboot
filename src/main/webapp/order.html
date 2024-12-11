@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - Art Gallery Shop</title>
+    <link rel="stylesheet" href="css/style3.css">
+    <style>
+        .confirmation-container {
+            text-align: center;
+            padding: 50px;
+            margin-top: 50px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .confirmation-container h1 {
+            font-size: 2.5em;
+            color: #333;
+        }
+
+        .confirmation-container p {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+
+        .confirmation-container a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .confirmation-container a:hover {
+            background-color: #555;
+        }
+
+        .feedback-message {
+            display: none;
+            margin-top: 30px;
+            font-size: 1.1em;
+            color: #4CAF50;
+        }
+
+        .feedback-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Content -->
+    <main>
+        <section class="confirmation-container">
+            <h1>Order Placed Successfully!</h1>
+            <p>Thank you for your purchase! Your order has been placed and will be processed shortly.</p>
+            <p>Order ID: <strong id="order-id">Loading...</strong></p>
+            <a href="shop.html">Continue Shopping</a>
+        </section>
+
+        <!-- Feedback Section -->
+        <section class="feedback-container">
+            <p class="feedback-message" id="feedback-message">We appreciate your feedback! Please let us know how we can improve.</p>
+        </section>
+    </main>
+
+    <!-- JavaScript to Generate Order ID, Send Data to sales.jsp, and Show Feedback -->
+    <script>
+    // Generate a random order ID
+    const orderId = 'AG' + Math.floor(Math.random() * 1000000);
+    
+    // Display the Order ID in the confirmation message
+    document.getElementById('order-id').innerText = orderId;
+
+    // Function to send the orderId to sales.jsp via AJAX
+    function sendOrderToSales(orderId) {
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'sales.jsp', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Optionally, handle the response from sales.jsp if needed
+                console.log('Order ID sent to sales.jsp');
+            }
+        };
+        // Send the orderId to sales.jsp
+        xhr.send('orderId=' + encodeURIComponent(orderId));
+    }
+
+    // Call the function to send the orderId to sales.jsp
+    sendOrderToSales(orderId);
+
+    // Redirect to feedback.html after 3-4 seconds
+    setTimeout(function() {
+        window.location.href = "feedback.html";
+    }, 4000); // 3000 ms = 3 seconds
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - Art Gallery Shop</title>
+    <link rel="stylesheet" href="css/style3.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="home.jsp">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html" id="cart-link">Cart (0)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <h1>Your Cart</h1>
+        <!-- Cart Items Section -->
+        <section id="cart-items">
+            <ul id="cart-list">
+                <!-- Cart items will be dynamically loaded here -->
+            </ul>
+            <p><strong>Total Price: <span id="total-price">0.00</span></strong></p>
+            <button onclick="checkout()">Proceed to Checkout</button>
+        </section>
+    </main>
+
+    <!-- JavaScript for Cart Functionality -->
+    <script>
+        // Initialize the cart from localStorage
+        let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Function to display cart items
+        function displayCart() {
+            const cartList = document.getElementById('cart-list');
+            let totalPrice = 0; // Initialize total price
+            cartList.innerHTML = ''; // Clear previous content
+
+            if (cartItems.length > 0) {
+                cartItems.forEach((item, index) => {
+                    const price = parseFloat(item.price) || 0;
+                    const quantity = parseInt(item.quantity) || 0;
+
+                    // Create list item
+                    const listItem = document.createElement('li');
+                    listItem.style.display = 'flex';
+                    listItem.style.alignItems = 'center';
+                    listItem.style.marginBottom = '15px';
+
+                    // Image
+                    const itemImage = document.createElement('img');
+                    itemImage.src = item.image || '';
+                    itemImage.alt = item.name || 'Item Image';
+                    itemImage.style.width = '100px';
+                    itemImage.style.height = '100px';
+                    itemImage.style.marginRight = '15px';
+
+                    // Details
+                    const itemDetails = document.createElement('div');
+                    itemDetails.innerHTML = `
+                        <strong>${item.name || 'Unnamed Item'}</strong><br>
+                        Price: ${price.toFixed(2)} <br>
+                        Quantity: ${quantity}
+                    `;
+
+                    // Quantity Buttons
+                    const adjustButtons = document.createElement('div');
+                    adjustButtons.style.display = 'flex';
+                    adjustButtons.style.alignItems = 'center';
+                    adjustButtons.style.marginLeft = 'auto';
+
+                    const minusButton = document.createElement('button');
+                    minusButton.innerText = '-';
+                    minusButton.style.marginRight = '10px';
+                    minusButton.style.backgroundColor = 'black';
+                    minusButton.style.color = 'white';
+                    minusButton.style.border = 'none';
+                    minusButton.style.padding = '5px 10px';
+                    minusButton.style.cursor = 'pointer';
+                    minusButton.onclick = () => adjustQuantity(index, -1);
+
+                    const plusButton = document.createElement('button');
+                    plusButton.innerText = '+';
+                    plusButton.style.backgroundColor = 'black';
+                    plusButton.style.color = 'white';
+                    plusButton.style.border = 'none';
+                    plusButton.style.padding = '5px 10px';
+                    plusButton.style.cursor = 'pointer';
+                    plusButton.onclick = () => adjustQuantity(index, 1);
+
+                    adjustButtons.appendChild(minusButton);
+                    adjustButtons.appendChild(plusButton);
+
+                    // Append to list item
+                    listItem.appendChild(itemImage);
+                    listItem.appendChild(itemDetails);
+                    listItem.appendChild(adjustButtons);
+                    cartList.appendChild(listItem);
+
+                    // Update total price
+                    totalPrice += price * quantity;
+                });
+            } else {
+                cartList.innerHTML = '<p>Your cart is empty.</p>';
+            }
+
+            // Update total price and cart count
+            document.getElementById('total-price').innerText = totalPrice.toFixed(2);
+            document.getElementById('cart-link').innerHTML = `Cart (${cartItems.length})`;
+        }
+
+        // Function to adjust quantity
+        function adjustQuantity(index, change) {
+            cartItems[index].quantity = parseInt(cartItems[index].quantity || 0) + change;
+
+            // Remove item if quantity <= 0
+            if (cartItems[index].quantity <= 0) {
+                cartItems.splice(index, 1);
+            }
+
+            // Update cart in localStorage and re-render
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            displayCart();
+        }
+
+        // Function to handle checkout
+        function checkout() {
+            if (cartItems.length > 0) {
+                localStorage.setItem('totalPrice', document.getElementById('total-price').innerText);
+                window.location.href = 'payment.html';
+            } else {
+                alert('Your cart is empty!');
+            }
+        }
+
+        // Initialize cart display on page load
+        displayCart();
+    </script>
+</body>
+</html>

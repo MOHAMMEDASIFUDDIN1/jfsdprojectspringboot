@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Gallery - Artworks</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #111;
+            color: white;
+        }
+
+        header {
+            background-color: #333;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .nav-links li a:hover {
+            text-decoration: underline;
+        }
+
+        .artworks-header {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .artworks-header h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .artworks-header p {
+            font-size: 18px;
+            color: #bbb;
+        }
+
+        .artworks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .artwork-item {
+            background-color: #222;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .artwork-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+        }
+
+        .artwork-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .artwork-info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .artwork-info h3 {
+            margin: 10px 0;
+            font-size: 20px;
+        }
+
+        .artwork-info p {
+            font-size: 16px;
+            color: #ccc;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Art Gallery</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="dashboard.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="categories.html">Categories</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="artworks-header">
+        <h2>Featured Artworks</h2>
+        <p>Explore our exquisite collection of handpicked artworks from talented artists worldwide.</p>
+    </section>
+
+    <section class="artworks-grid">
+        <div class="artwork-item">
+            <img src="img/art10.jpg" alt="Artwork 1">
+            <div class="artwork-info">
+                <h3>Golden Horizon</h3>
+                <p>Acrylic on Canvas | 2024</p>
+            </div>
+        </div>
+
+        <div class="artwork-item">
+            <img src="img/art21.jpg" alt="Artwork 2">
+            <div class="artwork-info">
+                <h3>Urban Symphony</h3>
+                <p>Mixed Media | 2023</p>
+            </div>
+        </div>
+
+        <div class="artwork-item">
+            <img src="img/art13.jpg" alt="Artwork 3">
+            <div class="artwork-info">
+                <h3>Ethereal Bloom</h3>
+                <p>Watercolor | 2024</p>
+            </div>
+        </div>
+
+        <div class="artwork-item">
+            <img src="img/art14.jpg" alt="Artwork 4">
+            <div class="artwork-info">
+                <h3>Silent Forest</h3>
+                <p>Oil on Canvas | 2022</p>
+            </div>
+        </div>
+
+        <div class="artwork-item">
+            <img src="img/art15.jpg" alt="Artwork 5">
+            <div class="artwork-info">
+                <h3>Modern Abstraction</h3>
+                <p>Digital Art | 2023</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Art Gallery. All rights reserved. | <a href="contact.html">Contact Us</a></p>
+    </footer>
+
+</body>
+</html>

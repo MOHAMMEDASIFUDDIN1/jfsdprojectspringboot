@@ -1,0 +1,71 @@
+/* sales.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('/img/back10.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #fff;
+}
+
+.content-box {
+    background: rgba(255, 255, 255, 0.8); /* White background with transparency */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    backdrop-filter: blur(10px); /* Blur effect */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background: rgba(255, 255, 255, 0.8);
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    color: #333;
+}
+
+button {
+    display: block;
+    width: 100%;
+    background-color: #334; /* Red color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+a {
+    display: block;
+    width: 10%;
+    background-color: #333; /* Red color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}

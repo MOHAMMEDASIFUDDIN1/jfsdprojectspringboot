@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Art Gallery Shop</title>
+    <link rel="stylesheet" href="css/style3.css">
+    <style>
+        .feedback-container {
+            text-align: center;
+            padding: 50px;
+            margin-top: 50px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .feedback-container h1 {
+            font-size: 2.5em;
+            color: #333;
+        }
+
+        .feedback-container textarea {
+            width: 80%;
+            height: 150px;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .feedback-container button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .feedback-container button:hover {
+            background-color: #555;
+        }
+
+        .thank-you-message {
+            display: none;
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Feedback Form -->
+    <main>
+        <section class="feedback-container">
+            <h1>We Value Your Feedback!</h1>
+            <form id="feedbackForm">
+                <label for="feedback">Your Feedback:</label>
+                <textarea id="feedback" name="feedback" required></textarea>
+                <br>
+                <button type="submit">Submit Feedback</button>
+            </form>
+            <p id="thankYouMessage" class="thank-you-message">Thank you for your feedback! Redirecting...</p>
+        </section>
+    </main>
+
+    <script>
+        // Handle form submission
+        document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get the feedback value
+            const feedback = document.getElementById('feedback').value;
+
+            // Send the feedback to message.jsp using AJAX
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'message.jsp', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // Display "Thank You" message
+                    document.getElementById('thankYouMessage').style.display = 'block';
+
+                    // Redirect to home.jsp after a 3-second delay
+                    setTimeout(function() {
+                        window.location.href = 'home.jsp';
+                    }, 3000); // 3 seconds delay
+                }
+            };
+
+            // Send feedback data to message.jsp
+            xhr.send('feedback=' + encodeURIComponent(feedback));
+        });
+    </script>
+
+</body>
+</html>

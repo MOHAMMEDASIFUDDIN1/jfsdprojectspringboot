@@ -1,0 +1,140 @@
+@charset "UTF-8";
+@charset "UTF-8";
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    color: #333;
+}
+
+/* Header and Navigation Bar */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 15px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff6347;
+}
+
+/* Main Content */
+main {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+h1,h2 {
+    font-size: 2.5rem;
+    color: white;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+/* Artwork Section */
+.artwork-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.artwork {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+}
+
+.artwork img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.artwork h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.artwork p {
+    margin: 0.1px 0;
+    color: rgb(0, 0, 0);
+}
+
+.artwork button {
+    background-color: #ff6347;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.artwork button:hover {
+    background-color: #ff4500;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+#cart-link {
+    font-weight: bold;
+    background-color: #ff5722;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+
+#cart-link:hover {
+    background-color: #e64a19;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+footer a {
+    color: #ff6347;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
